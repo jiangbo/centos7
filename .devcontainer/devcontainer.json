@@ -1,0 +1,7 @@
+{
+    "name": "JiangBo Centos7",
+    "dockerFile": "Dockerfile",
+    "settings": {
+        "editor.formatOnSave": true
+    }
+}
