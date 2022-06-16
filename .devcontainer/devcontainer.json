@@ -2,8 +2,8 @@
     "name": "JiangBo Centos7",
     "dockerFile": "Dockerfile",
     "extensions": [
-        "The Rust Programming Language.rust-analyzer",
-        "Vadim Chugunov.CodeLLDB"
+        "matklad.rust-analyzer",
+        "vadimcn.vscode-lldb"
     ],
     "settings": {
         "editor.formatOnSave": true
