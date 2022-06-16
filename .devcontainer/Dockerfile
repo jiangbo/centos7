@@ -1,6 +1,5 @@
-FROM centos:7
+FROM centos:8
 WORKDIR /root/
-RUN ls -l && pwd && ls -l /root/
 COPY . .
 RUN bash ./init.sh
 ENV PATH="/root/.cargo/bin:$PATH"

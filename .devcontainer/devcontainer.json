@@ -1,10 +1,6 @@
 {
-    "name": "JiangBo Centos7",
+    "name": "JiangBo Centos8",
     "dockerFile": "Dockerfile",
-    "extensions": [
-        "matklad.rust-analyzer",
-        "vadimcn.vscode-lldb"
-    ],
     "settings": {
         "editor.formatOnSave": true
     }
