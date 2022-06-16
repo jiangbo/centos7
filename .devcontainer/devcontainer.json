@@ -1,6 +1,9 @@
 {
     "name": "JiangBo Centos7",
     "dockerFile": "Dockerfile",
+    "extensions": [
+        "The Rust Programming Language.rust-analyzer"
+    ],
     "settings": {
         "editor.formatOnSave": true
     }
