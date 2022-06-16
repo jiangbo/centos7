@@ -1,11 +1,11 @@
-# Centos8 Rust Code Space
+# AlmaLinux8 Rust Code Space
 
 ```sh
 #!/bin/sh
 
 echo "init sh script"
 
-dnf update -y && yum upgrade -y
+dnf update -y && dnf upgrade -y
 dnf install -y git glibc-devel.x86_64 glibc-headers.x86_64 \
     vim curl
 

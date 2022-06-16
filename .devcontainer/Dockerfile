@@ -1,4 +1,4 @@
-FROM centos:8
+FROM almalinux:8
 WORKDIR /root/
 COPY . .
 RUN bash ./init.sh

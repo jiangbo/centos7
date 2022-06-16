@@ -1,5 +1,5 @@
 {
-    "name": "JiangBo Centos8",
+    "name": "JiangBo AlmaLinux8",
     "dockerFile": "Dockerfile",
     "settings": {
         "editor.formatOnSave": true
