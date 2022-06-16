@@ -1,4 +1,4 @@
-FROM almalinux:8
+FROM almalinux:7
 WORKDIR /root/
 COPY . .
 RUN bash ./init.sh
