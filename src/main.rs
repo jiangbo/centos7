@@ -1,18 +1,27 @@
-use std::net::UdpSocket;
+use anyhow::{Context, Result};
+use crossterm::{terminal, ExecutableCommand};
+use tui::backend::{Backend, CrosstermBackend};
 
-fn main() -> std::io::Result<()> {
-    {
-        let socket = UdpSocket::bind("127.0.0.1:34254")?;
+mod app;
 
-        // Receives a single datagram message on the socket. If `buf` is too small to hold
-        // the message, it will be cut off.
-        let mut buf = [0; 10];
-        let (amt, src) = socket.recv_from(&mut buf)?;
+pub fn main() -> Result<()> {
+    terminal::enable_raw_mode()?;
 
-        // Redeclare `buf` as slice of the received data and send reverse data back to origin.
-        let buf = &mut buf[..amt];
-        buf.reverse();
-        socket.send_to(buf, &src)?;
-    } // the socket is closed here
-    Ok(())
+    let mut backend = CrosstermBackend::new(std::io::stdout());
+    backend
+        .execute(terminal::EnterAlternateScreen)?
+        .execute(terminal::Clear(terminal::ClearType::All))?
+        .hide_cursor()?;
+    let mut terminal = tui::Terminal::new(backend)?;
+
+    // create app and run it
+    app::App::new().run(&mut terminal)?;
+
+    terminal::disable_raw_mode()?;
+    terminal
+        .backend_mut()
+        .execute(terminal::Clear(terminal::ClearType::All))?
+        .execute(terminal::LeaveAlternateScreen)?
+        .show_cursor()
+        .context("reset terminal error")
 }
