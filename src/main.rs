@@ -14,7 +14,6 @@ pub fn main() -> Result<()> {
         .hide_cursor()?;
     let mut terminal = tui::Terminal::new(backend)?;
 
-    // create app and run it
     app::App::new().run(&mut terminal)?;
 
     terminal::disable_raw_mode()?;
